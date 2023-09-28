@@ -4,8 +4,8 @@
 TaskHandle_t Task1;
 TaskHandle_t Task2;
 
-const char *ssid = "Hidden Network_EXT";         // Add your WiFi ssid
-const char *password = "#secretpassword"; // Add your WiFi password
+const char *ssid = "SSID";         // Add your WiFi ssid
+const char *password = "PASSWORD"; // Add your WiFi password
 
 
 
