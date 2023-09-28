@@ -1,8 +1,6 @@
-#include <WiFi.h>
 #include <HTTPClient.h>
+#include "Doorbell2wp.h"
 
-const char *ssid = "Hidden Network_EXT";         // Add your WiFi ssid
-const char *password = "#secretpassword"; // Add your WiFi password
 
 String apiKey = "9511115";       // Add your Token number that bot has sent you on WhatsApp messenger
 String phone_number = "+4917657704802"; // Add your WhatsApp app registered phone number (same number that bot send you in url)
@@ -15,30 +13,17 @@ String messages[6] = {
     "You have a visitor at the door.",
     "Someone is waiting outside.",
     "A guest has arrived."};
+const int pinDeEntrada = 4;
 
 String url; // url String will be used to store the final generated URL
-const int pinDeEntrada = 4;
-void setup()
+void doorbell2wp_setup()
 {
   pinMode(pinDeEntrada, INPUT);
-  Serial.begin(115200);
   randomSeed(analogRead(0)); // start random number generator
-
-  WiFi.begin(ssid, password); // Try to connect with the given SSID and PSS
-  Serial.println("Connecting to WiFi");
-  while (WiFi.status() != WL_CONNECTED)
-  { // Wait until WiFi is connected
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println();
-  Serial.println("Connected to the WiFi network"); // Print wifi connect message
-
   // use message_to_whatsapp function to send your own message
   message_to_whatsapp("Doorbell Connected");
-
-  pinMode(2, OUTPUT);
-  digitalWrite(2, HIGH);
+  delay(50);
+  
 
 }
 
@@ -48,7 +33,7 @@ void setup()
 // if the circuit reads 4 times in a row that signal came (This to avoid false positives)
 // a Whatsapp message will be sent
 
-void loop()
+void doorbell2wp_loop()
 {
   int estadoPin = digitalRead(pinDeEntrada);
 
@@ -68,7 +53,6 @@ void loop()
     incoming_signal = 0;
   }
 
-  delay(350);
 }
 void message_to_whatsapp(String message) // user define function to send meassage to WhatsApp app
 {
