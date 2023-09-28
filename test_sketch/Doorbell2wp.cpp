@@ -2,8 +2,8 @@
 #include "Doorbell2wp.h"
 
 
-String apiKey = "9511115";       // Add your Token number that bot has sent you on WhatsApp messenger
-String phone_number = "+4917657704802"; // Add your WhatsApp app registered phone number (same number that bot send you in url)
+String apiKey = "APIKEY";       // Add your Token number that bot has sent you on WhatsApp messenger
+String phone_number = "+491111111111111"; // Add your WhatsApp app registered phone number (same number that bot send you in url)
 int incoming_signal = 0;
 
 String messages[6] = {
