@@ -1,11 +1,11 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char *ssid = "Hidden Network_EXT";         // Add your WiFi ssid
-const char *password = "#secretpassword"; // Add your WiFi password
+const char *ssid = "";     // Add your WiFi ssid
+const char *password = ""; // Add your WiFi password
 
-String apiKey = "9511115";       // Add your Token number that bot has sent you on WhatsApp messenger
-String phone_number = "+4917657704802"; // Add your WhatsApp app registered phone number (same number that bot send you in url)
+String apiKey = "";       // Add your Token number that bot has sent you on WhatsApp messenger
+String phone_number = ""; // Add your WhatsApp app registered phone number (same number that bot send you in url)
 int incoming_signal = 0;
 
 String messages[6] = {
@@ -39,7 +39,6 @@ void setup()
 
   pinMode(2, OUTPUT);
   digitalWrite(2, HIGH);
-
 }
 
 // the modded doorbell uses polling to constantly check if the signal came
